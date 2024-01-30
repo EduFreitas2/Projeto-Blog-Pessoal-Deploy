@@ -25,17 +25,18 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/temas")
-@CrossOrigin(origins ="*", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class TemaController {
-	
-	@Autowired
-	private TemaRepository temaRepository;
-	
-	@GetMapping
-	public ResponseEntity<List<Tema>> getAll(){
-		return ResponseEntity.ok(temaRepository.findAll());
-	}
-	@GetMapping("/{id}")
+    
+    @Autowired
+    private TemaRepository temaRepository;
+    
+    @GetMapping
+    public ResponseEntity<List<Tema>> getAll(){
+        return ResponseEntity.ok(temaRepository.findAll());
+    }
+    
+    @GetMapping("/{id}")
     public ResponseEntity<Tema> getById(@PathVariable Long id){
         return temaRepository.findById(id)
             .map(resposta -> ResponseEntity.ok(resposta))

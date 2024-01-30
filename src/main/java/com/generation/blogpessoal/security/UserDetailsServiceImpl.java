@@ -25,7 +25,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		Optional<Usuario> usuario = usuarioRepository.findByUsuario(userName);
 
 		if (usuario.isPresent())
-			return new UserDatailsImpl(usuario.get());
+			return new UserDetailsImpl(usuario.get());
 		else
 			throw new ResponseStatusException(HttpStatus.FORBIDDEN);
 			
